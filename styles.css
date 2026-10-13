@@ -129,6 +129,8 @@ section { padding: 4rem 0; }
 .c-amarillo { background: var(--amarillo); }
 
 /* ---------- Productos ---------- */
+/* La barra fija (sticky) tapaba el destino de los enlaces internos */
+.producto[id] { scroll-margin-top: 5.5rem; }
 .productos-fondo { background: var(--rosa-suave); border-block: var(--borde); }
 .productos { grid-template-columns: 1fr; }
 .producto {

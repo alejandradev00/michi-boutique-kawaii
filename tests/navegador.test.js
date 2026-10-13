@@ -114,6 +114,37 @@ describe('Celular (375px)', () => {
     await page.close();
   });
 
+  describe('al tocar cada categoría se llega a ESA categoría', () => {
+    const categorias = {
+      'Comida': ['Snacks Sushi Kawaii'],
+      'Juguetes': ['Pelotitas Mochi', 'Caña Estrellita Mágica'],
+      'Camas y rascadores': ['Cama Nube Dormilona', 'Rascador Torre Arcoíris'],
+      'Accesorios': ['Collar Fresita'],
+    };
+    for (const [nombre, productos] of Object.entries(categorias)) {
+      test(`"${nombre}" muestra primero un producto de ${nombre}`, async () => {
+        const browserCtx = await browser.newContext({ viewport: { width: 375, height: 700 }, hasTouch: true, isMobile: true });
+        const page = await browserCtx.newPage();
+        await page.goto(url);
+        const enlace = page.locator('.categoria', { hasText: nombre });
+        await enlace.scrollIntoViewIfNeeded();
+        await enlace.tap();
+        await page.waitForTimeout(1200);
+        // Primer producto visible justo debajo de la barra fija
+        const primero = await page.evaluate(() => {
+          const barra = document.querySelector('.barra').getBoundingClientRect().bottom;
+          const visibles = [...document.querySelectorAll('.producto')]
+            .map(p => ({ top: p.getBoundingClientRect().top, nombre: p.querySelector('h3').textContent }))
+            .filter(p => p.top >= barra - 1 && p.top < innerHeight)
+            .sort((a, b) => a.top - b.top);
+          return visibles[0] && visibles[0].nombre;
+        });
+        assert.ok(productos.includes(primero), `tocar "${nombre}" mostró "${primero}"; se esperaba uno de: ${productos.join(', ')}`);
+        await browserCtx.close();
+      });
+    }
+  });
+
   test('los botones "Añadir" tienen al menos 40px de alto (táctil)', async () => {
     const { page } = await abrir(375, 700);
     const alto = await page.locator('[data-producto]').first().evaluate(e => e.getBoundingClientRect().height);

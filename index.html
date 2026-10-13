@@ -56,10 +56,10 @@
         <h2>Elige tu categoría 🎀</h2>
         <p class="subtitulo">Encuentra justo lo que tu michi necesita.</p>
         <div class="rejilla categorias">
-          <a href="#productos" class="categoria c-rosa"><span class="emoji">🍣</span><h3>Comida</h3></a>
-          <a href="#productos" class="categoria c-menta"><span class="emoji">🧶</span><h3>Juguetes</h3></a>
-          <a href="#productos" class="categoria c-celeste"><span class="emoji">🛏️</span><h3>Camas y rascadores</h3></a>
-          <a href="#productos" class="categoria c-amarillo"><span class="emoji">🎀</span><h3>Accesorios</h3></a>
+          <a href="#cat-comida" class="categoria c-rosa"><span class="emoji">🍣</span><h3>Comida</h3></a>
+          <a href="#cat-juguetes" class="categoria c-menta"><span class="emoji">🧶</span><h3>Juguetes</h3></a>
+          <a href="#cat-camas" class="categoria c-celeste"><span class="emoji">🛏️</span><h3>Camas y rascadores</h3></a>
+          <a href="#cat-accesorios" class="categoria c-amarillo"><span class="emoji">🎀</span><h3>Accesorios</h3></a>
         </div>
       </div>
     </section>
@@ -71,7 +71,7 @@
         <p class="subtitulo">Los productos más queridos de nuestra boutique.</p>
         <div class="rejilla productos">
 
-          <article class="producto">
+          <article class="producto" data-categoria="comida" id="cat-comida">
             <span class="nuevo">¡Nuevo!</span>
             <div class="producto-img" style="background: var(--rosa-suave)">🐟</div>
             <div class="producto-cuerpo">
@@ -81,7 +81,7 @@
             </div>
           </article>
 
-          <article class="producto">
+          <article class="producto" data-categoria="juguetes" id="cat-juguetes">
             <div class="producto-img" style="background: var(--menta)">🍡</div>
             <div class="producto-cuerpo">
               <h3>Pelotitas Mochi</h3>
@@ -90,7 +90,7 @@
             </div>
           </article>
 
-          <article class="producto">
+          <article class="producto" data-categoria="camas" id="cat-camas">
             <span class="nuevo">¡Nuevo!</span>
             <div class="producto-img" style="background: var(--celeste)">☁️</div>
             <div class="producto-cuerpo">
@@ -100,7 +100,7 @@
             </div>
           </article>
 
-          <article class="producto">
+          <article class="producto" data-categoria="accesorios" id="cat-accesorios">
             <div class="producto-img" style="background: var(--amarillo)">🍓</div>
             <div class="producto-cuerpo">
               <h3>Collar Fresita</h3>
@@ -109,7 +109,7 @@
             </div>
           </article>
 
-          <article class="producto">
+          <article class="producto" data-categoria="camas">
             <div class="producto-img" style="background: var(--durazno)">
               <svg viewBox="0 0 120 120" width="96" height="96" role="img" aria-label="Torre rascador arcoíris con un gatito" fill="none" stroke="#4A2F5E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
                 <rect x="14" y="100" width="92" height="12" rx="6" fill="#FF9CC9"/>
@@ -133,7 +133,7 @@
             </div>
           </article>
 
-          <article class="producto">
+          <article class="producto" data-categoria="juguetes">
             <div class="producto-img" style="background: var(--lavanda)">🎣</div>
             <div class="producto-cuerpo">
               <h3>Caña Estrellita Mágica</h3>
