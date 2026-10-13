@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Michi Boutique Kawaii</title>
+  <meta name="description" content="Tienda kawaii para gatitos: comida, juguetes, camitas y accesorios con estilo Harajuku.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 1. BARRA SUPERIOR -->
+  <header class="barra">
+    <div class="contenedor">
+      <a href="#inicio" class="logo">🐱 Michi Boutique Kawaii</a>
+      <button class="menu-boton" id="menuBoton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+      <nav class="menu" id="menu">
+        <a href="#productos">Productos</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#productos" class="btn-chico">Comprar 🛍️</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. PORTADA -->
+    <section class="hero" id="inicio">
+      <div class="contenedor">
+        <div>
+          <span class="etiqueta">✨ Nueva colección Harajuku</span>
+          <h1>Todo lo <span>kawaii</span> para tu michi 🐾</h1>
+          <p>Comida, juguetes, camitas y accesorios llenos de color para el gatito más adorable del mundo. ¡Porque tu michi merece brillar!</p>
+          <div class="hero-botones">
+            <a href="#productos" class="btn">Ver productos</a>
+            <a href="#categorias" class="btn btn-secundario">Explorar categorías</a>
+          </div>
+        </div>
+        <div class="hero-arte" aria-hidden="true">
+          🐱
+          <span class="deco d1">⭐</span>
+          <span class="deco d2">💖</span>
+          <span class="deco d3">🌈</span>
+          <span class="deco d4">🎀</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CATEGORÍAS -->
+    <section id="categorias">
+      <div class="contenedor">
+        <h2>Elige tu categoría 🎀</h2>
+        <p class="subtitulo">Encuentra justo lo que tu michi necesita.</p>
+        <div class="rejilla categorias">
+          <a href="#productos" class="categoria c-rosa"><span class="emoji">🍣</span><h3>Comida</h3></a>
+          <a href="#productos" class="categoria c-menta"><span class="emoji">🧶</span><h3>Juguetes</h3></a>
+          <a href="#productos" class="categoria c-celeste"><span class="emoji">🛏️</span><h3>Camas y rascadores</h3></a>
+          <a href="#productos" class="categoria c-amarillo"><span class="emoji">🎀</span><h3>Accesorios</h3></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PRODUCTOS DESTACADOS -->
+    <section id="productos" class="productos-fondo">
+      <div class="contenedor">
+        <h2>Favoritos de los michis 💖</h2>
+        <p class="subtitulo">Los productos más queridos de nuestra boutique.</p>
+        <div class="rejilla productos">
+
+          <article class="producto">
+            <span class="nuevo">¡Nuevo!</span>
+            <div class="producto-img" style="background: var(--rosa-suave)">🐟</div>
+            <div class="producto-cuerpo">
+              <h3>Snacks Sushi Kawaii</h3>
+              <p>Premios con forma de sushi sabor salmón. ¡Irresistibles!</p>
+              <div class="producto-pie"><span class="precio">$7.99</span><button class="btn-chico" data-producto="Snacks Sushi Kawaii">Añadir</button></div>
+            </div>
+          </article>
+
+          <article class="producto">
+            <div class="producto-img" style="background: var(--menta)">🍡</div>
+            <div class="producto-cuerpo">
+              <h3>Pelotitas Mochi</h3>
+              <p>Set de 3 pelotitas suaves con cascabel en colores pastel.</p>
+              <div class="producto-pie"><span class="precio">$9.50</span><button class="btn-chico" data-producto="Pelotitas Mochi">Añadir</button></div>
+            </div>
+          </article>
+
+          <article class="producto">
+            <span class="nuevo">¡Nuevo!</span>
+            <div class="producto-img" style="background: var(--celeste)">☁️</div>
+            <div class="producto-cuerpo">
+              <h3>Cama Nube Dormilona</h3>
+              <p>Camita acolchada en forma de nube, súper suave y lavable.</p>
+              <div class="producto-pie"><span class="precio">$29.90</span><button class="btn-chico" data-producto="Cama Nube Dormilona">Añadir</button></div>
+            </div>
+          </article>
+
+          <article class="producto">
+            <div class="producto-img" style="background: var(--amarillo)">🍓</div>
+            <div class="producto-cuerpo">
+              <h3>Collar Fresita</h3>
+              <p>Collar ajustable con lazo y cascabel de fresa. Seguro y cómodo.</p>
+              <div class="producto-pie"><span class="precio">$12.00</span><button class="btn-chico" data-producto="Collar Fresita">Añadir</button></div>
+            </div>
+          </article>
+
+          <article class="producto">
+            <div class="producto-img" style="background: var(--durazno)">
+              <svg viewBox="0 0 120 120" width="96" height="96" role="img" aria-label="Torre rascador arcoíris con un gatito" fill="none" stroke="#4A2F5E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+                <rect x="14" y="100" width="92" height="12" rx="6" fill="#FF9CC9"/>
+                <rect x="52" y="30" width="16" height="72" fill="#FFF1A6"/>
+                <path d="M52 44h16M52 58h16M52 72h16M52 86h16"/>
+                <rect x="26" y="76" width="68" height="10" rx="5" fill="#CDB8F5"/>
+                <rect x="34" y="52" width="52" height="10" rx="5" fill="#B5EBD7"/>
+                <rect x="38" y="28" width="44" height="10" rx="5" fill="#B3DEF7"/>
+                <polygon points="64,42 65,32 72,38" fill="#FFD6E8"/>
+                <polygon points="80,42 79,32 72,38" fill="#FFD6E8"/>
+                <circle cx="72" cy="44" r="9" fill="#FFD6E8"/>
+                <circle cx="69" cy="44" r="1.2" fill="#4A2F5E"/>
+                <circle cx="75" cy="44" r="1.2" fill="#4A2F5E"/>
+                <path d="M60 5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L60 18.5l-5.4 3 1.2-6-4.5-4.2 6.1-.7z" fill="#FFF1A6"/>
+              </svg>
+            </div>
+            <div class="producto-cuerpo">
+              <h3>Rascador Torre Arcoíris</h3>
+              <p>Torre de 3 niveles con casita, plataformas y juguete colgante.</p>
+              <div class="producto-pie"><span class="precio">$44.00</span><button class="btn-chico" data-producto="Rascador Torre Arcoíris">Añadir</button></div>
+            </div>
+          </article>
+
+          <article class="producto">
+            <div class="producto-img" style="background: var(--lavanda)">🎣</div>
+            <div class="producto-cuerpo">
+              <h3>Caña Estrellita Mágica</h3>
+              <p>Caña con plumas y estrella brillante para jugar sin parar.</p>
+              <div class="producto-pie"><span class="precio">$6.50</span><button class="btn-chico" data-producto="Caña Estrellita Mágica">Añadir</button></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. BENEFICIOS -->
+    <section id="beneficios">
+      <div class="contenedor">
+        <h2>¿Por qué Michi Boutique? 🌟</h2>
+        <p class="subtitulo">Cuidamos a tu michi como si fuera nuestro.</p>
+        <div class="rejilla beneficios">
+          <div class="beneficio"><div class="burbuja" style="background: var(--rosa-suave)">🚚</div><h3>Envío rápido</h3><p>Tu pedido llega volando, ¡como un michi detrás de un láser!</p></div>
+          <div class="beneficio"><div class="burbuja" style="background: var(--menta)">🌿</div><h3>Productos seguros</h3><p>Materiales suaves y no tóxicos, pensados para gatitos.</p></div>
+          <div class="beneficio"><div class="burbuja" style="background: var(--celeste)">🔄</div><h3>Devoluciones fáciles</h3><p>Si no le gusta a tu michi, lo cambiamos sin complicaciones.</p></div>
+          <div class="beneficio"><div class="burbuja" style="background: var(--amarillo)">💬</div><h3>Atención amable</h3><p>Resolvemos tus dudas con mucho cariño y paciencia.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. OPINIONES -->
+    <section id="opiniones" class="opiniones-fondo">
+      <div class="contenedor">
+        <h2>Lo que dicen los humanos 💌</h2>
+        <p class="subtitulo">Familias felices (y gatitos aún más felices).</p>
+        <div class="rejilla opiniones">
+          <blockquote class="opinion" style="margin:0">
+            <div class="estrellas" aria-label="5 estrellas">⭐⭐⭐⭐⭐</div>
+            <p>¡Mi Mochi no se despega de su cama nube! Es hermosa y la calidad es súper buena.</p>
+            <p class="autor"><span class="avatar">🐱</span> Valentina, mamá de Mochi</p>
+          </blockquote>
+          <blockquote class="opinion" style="margin:0">
+            <div class="estrellas" aria-label="5 estrellas">⭐⭐⭐⭐⭐</div>
+            <p>Los snacks sushi son un éxito. Llegaron rapidísimo y con un empaque divino.</p>
+            <p class="autor"><span class="avatar">😸</span> Camila, mamá de Sushi</p>
+          </blockquote>
+          <blockquote class="opinion" style="margin:0">
+            <div class="estrellas" aria-label="5 estrellas">⭐⭐⭐⭐⭐</div>
+            <p>El collar fresita quedó precioso en mi gatita. ¡Todos preguntan dónde lo compré!</p>
+            <p class="autor"><span class="avatar">😻</span> Daniela, mamá de Fresita</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. OFERTA / NEWSLETTER -->
+    <section id="oferta">
+      <div class="contenedor">
+        <div class="oferta">
+          <h2>🎁 10% de descuento en tu primera compra</h2>
+          <p>Suscríbete y recibe novedades, ofertas y mucha ternura en tu correo.</p>
+          <form class="formulario" id="formulario">
+            <input type="email" id="correo" placeholder="tucorreo@ejemplo.com" aria-label="Tu correo electrónico" required>
+            <button type="submit" class="btn">¡Lo quiero! 💖</button>
+          </form>
+          <p class="mensaje-ok" id="mensaje" role="status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. PIE DE PÁGINA -->
+  <footer id="contacto">
+    <div class="contenedor">
+      <div class="pie-rejilla">
+        <div>
+          <h3>🐱 Michi Boutique Kawaii</h3>
+          <p>Hacemos felices a los michis y a sus humanos con productos llenos de color y ternura.</p>
+          <p>✉️ hola@michiboutique.com</p>
+        </div>
+        <div>
+          <h3>Síguenos</h3>
+          <ul>
+            <li><a href="#" data-pendiente>Instagram</a></li>
+            <li><a href="#" data-pendiente>TikTok</a></li>
+            <li><a href="#" data-pendiente>Facebook</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Información</h3>
+          <ul>
+            <li><a href="#" data-pendiente>Términos y condiciones</a></li>
+            <li><a href="#" data-pendiente>Política de privacidad</a></li>
+            <li><a href="#" data-pendiente>Envíos y devoluciones</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="derechos">© 2026 Michi Boutique Kawaii · Hecho con 💖 para los michis</p>
+    </div>
+  </footer>
+
+  <script>
+    // Menú hamburguesa (celular)
+    const menuBoton = document.getElementById('menuBoton');
+    const menu = document.getElementById('menu');
+    menuBoton.addEventListener('click', () => {
+      const abierto = menu.classList.toggle('abierto');
+      menuBoton.setAttribute('aria-expanded', abierto);
+      menuBoton.textContent = abierto ? '✕' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('abierto');
+      menuBoton.setAttribute('aria-expanded', 'false');
+      menuBoton.textContent = '☰';
+    }));
+
+    // Botones "Añadir" (por ahora solo muestran un aviso de ejemplo)
+    document.querySelectorAll('[data-producto]').forEach(boton => {
+      const original = boton.textContent;
+      let temporizador;
+      boton.addEventListener('click', () => {
+        boton.textContent = '¡Añadido! 💖';
+        clearTimeout(temporizador);
+        temporizador = setTimeout(() => { boton.textContent = original; }, 1500);
+      });
+    });
+
+    // Enlaces del pie aún sin destino: evitan saltar al inicio de la página
+    document.querySelectorAll('a[data-pendiente]').forEach(a => {
+      a.addEventListener('click', e => e.preventDefault());
+    });
+
+    // Formulario de suscripción (de ejemplo, no envía datos a ningún sitio)
+    document.getElementById('formulario').addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('mensaje').textContent = '¡Gracias! Pronto recibirás tu cupón 🎉';
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

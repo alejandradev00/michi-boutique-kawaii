@@ -1,0 +1,16 @@
+{
+  "name": "gatitos-landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdom": "^24.1.3",
+    "playwright-core": "^1.64.0"
+  }
+}
