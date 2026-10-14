@@ -16,6 +16,7 @@
   <header class="barra">
     <div class="contenedor">
       <a href="#inicio" class="logo">🐱 Michi Boutique Kawaii</a>
+      <button class="carrito-boton" id="carritoBoton" aria-label="Abrir carrito, vacío" aria-haspopup="dialog" aria-expanded="false" aria-controls="carrito">🛒<span class="carrito-cantidad" id="carritoCantidad" hidden>0</span></button>
       <button class="menu-boton" id="menuBoton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
       <nav class="menu" id="menu">
         <a href="#productos">Productos</a>
@@ -77,7 +78,7 @@
             <div class="producto-cuerpo">
               <h3>Snacks Sushi Kawaii</h3>
               <p>Premios con forma de sushi sabor salmón. ¡Irresistibles!</p>
-              <div class="producto-pie"><span class="precio">$7.99</span><button class="btn-chico" data-producto="Snacks Sushi Kawaii">Añadir</button></div>
+              <div class="producto-pie"><span class="precio">$7.99</span><button class="btn-chico" data-producto="Snacks Sushi Kawaii" data-id="sushi" data-precio="7.99" data-emoji="🐟">Añadir</button></div>
             </div>
           </article>
 
@@ -86,7 +87,7 @@
             <div class="producto-cuerpo">
               <h3>Pelotitas Mochi</h3>
               <p>Set de 3 pelotitas suaves con cascabel en colores pastel.</p>
-              <div class="producto-pie"><span class="precio">$9.50</span><button class="btn-chico" data-producto="Pelotitas Mochi">Añadir</button></div>
+              <div class="producto-pie"><span class="precio">$9.50</span><button class="btn-chico" data-producto="Pelotitas Mochi" data-id="mochi" data-precio="9.50" data-emoji="🍡">Añadir</button></div>
             </div>
           </article>
 
@@ -96,7 +97,7 @@
             <div class="producto-cuerpo">
               <h3>Cama Nube Dormilona</h3>
               <p>Camita acolchada en forma de nube, súper suave y lavable.</p>
-              <div class="producto-pie"><span class="precio">$29.90</span><button class="btn-chico" data-producto="Cama Nube Dormilona">Añadir</button></div>
+              <div class="producto-pie"><span class="precio">$29.90</span><button class="btn-chico" data-producto="Cama Nube Dormilona" data-id="nube" data-precio="29.90" data-emoji="☁️">Añadir</button></div>
             </div>
           </article>
 
@@ -105,7 +106,7 @@
             <div class="producto-cuerpo">
               <h3>Collar Fresita</h3>
               <p>Collar ajustable con lazo y cascabel de fresa. Seguro y cómodo.</p>
-              <div class="producto-pie"><span class="precio">$12.00</span><button class="btn-chico" data-producto="Collar Fresita">Añadir</button></div>
+              <div class="producto-pie"><span class="precio">$12.00</span><button class="btn-chico" data-producto="Collar Fresita" data-id="fresita" data-precio="12.00" data-emoji="🍓">Añadir</button></div>
             </div>
           </article>
 
@@ -129,7 +130,7 @@
             <div class="producto-cuerpo">
               <h3>Rascador Torre Arcoíris</h3>
               <p>Torre de 3 niveles con casita, plataformas y juguete colgante.</p>
-              <div class="producto-pie"><span class="precio">$44.00</span><button class="btn-chico" data-producto="Rascador Torre Arcoíris">Añadir</button></div>
+              <div class="producto-pie"><span class="precio">$44.00</span><button class="btn-chico" data-producto="Rascador Torre Arcoíris" data-id="rascador" data-precio="44.00" data-emoji="🌈">Añadir</button></div>
             </div>
           </article>
 
@@ -138,7 +139,7 @@
             <div class="producto-cuerpo">
               <h3>Caña Estrellita Mágica</h3>
               <p>Caña con plumas y estrella brillante para jugar sin parar.</p>
-              <div class="producto-pie"><span class="precio">$6.50</span><button class="btn-chico" data-producto="Caña Estrellita Mágica">Añadir</button></div>
+              <div class="producto-pie"><span class="precio">$6.50</span><button class="btn-chico" data-producto="Caña Estrellita Mágica" data-id="cana" data-precio="6.50" data-emoji="🎣">Añadir</button></div>
             </div>
           </article>
 
@@ -231,6 +232,34 @@
     </div>
   </footer>
 
+  <!-- CARRITO (panel lateral) -->
+  <p class="solo-lectores" id="carritoAviso" role="status" aria-live="polite"></p>
+  <div class="carrito-fondo" id="carritoFondo" hidden></div>
+  <aside class="carrito" id="carrito" role="dialog" aria-modal="true" aria-labelledby="carritoTitulo" tabindex="-1" hidden>
+    <div class="carrito-cabecera">
+      <h2 id="carritoTitulo">Mi carrito 🛒</h2>
+      <button class="carrito-cerrar" id="carritoCerrar" aria-label="Cerrar carrito">✕</button>
+    </div>
+    <p class="carrito-vacio" id="carritoVacio">Tu carrito está vacío 🐾<br>¡Tu michi te espera con muchas ricuras!</p>
+    <ul class="carrito-lista" id="carritoLista"></ul>
+    <div class="carrito-pie">
+      <p class="carrito-total"><span>Total</span> <strong id="carritoTotal">$0.00</strong></p>
+      <button class="btn" id="irAPagar" disabled>Ir a pagar mi pedido</button>
+    </div>
+  </aside>
+
+  <!-- CONFIRMACIÓN SIMULADA (no se cobra nada ni se piden datos de tarjeta) -->
+  <div class="confirmacion" id="confirmacion" role="dialog" aria-modal="true" aria-labelledby="confirmacionTitulo" tabindex="-1" hidden>
+    <div class="confirmacion-caja">
+      <div class="confirmacion-emoji" aria-hidden="true">🎉</div>
+      <h2 id="confirmacionTitulo" tabindex="-1">¡Gracias por tu pedido!</h2>
+      <p class="confirmacion-aviso">Esto es una demostración: no se cobró nada y no guardamos datos de pago.</p>
+      <ul class="carrito-lista" id="confirmacionLista"></ul>
+      <p class="carrito-total"><span>Total</span> <strong id="confirmacionTotal">$0.00</strong></p>
+      <button class="btn" id="volverTienda">Volver a la tienda</button>
+    </div>
+  </div>
+
   <script>
     // Menú hamburguesa (celular)
     const menuBoton = document.getElementById('menuBoton');
@@ -246,11 +275,206 @@
       menuBoton.textContent = '☰';
     }));
 
-    // Botones "Añadir" (por ahora solo muestran un aviso de ejemplo)
+    // ---------- Carrito de compras ----------
+    // Solo se guardan ids y cantidades; nombre y precio salen siempre de la página.
+    const CLAVE_CARRITO = 'michi-carrito';
+    const MAX_CANTIDAD = 99;
+    const botonesProducto = new Map();
+    document.querySelectorAll('[data-producto]').forEach(b => botonesProducto.set(b.dataset.id, b));
+    const carrito = new Map(); // id -> cantidad
+
+    const el = id => document.getElementById(id);
+    const panel = el('carrito'), fondo = el('carritoFondo'), botonCarrito = el('carritoBoton');
+    const lista = el('carritoLista'), vacio = el('carritoVacio'), botonPagar = el('irAPagar');
+    const confirmacion = el('confirmacion');
+
+    const datos = id => {
+      const b = botonesProducto.get(id);
+      return { nombre: b.dataset.producto, centavos: Math.round(parseFloat(b.dataset.precio) * 100), emoji: b.dataset.emoji || '🐱' };
+    };
+    // Dinero en centavos (enteros) para no arrastrar errores de decimales
+    const dinero = centavos => '$' + (centavos / 100).toFixed(2);
+
+    // Deja solo números enteros entre 0 y 99; cualquier otra cosa cuenta como 0
+    const cantidadValida = v => (typeof v === 'number' && Number.isFinite(v)) ? Math.min(MAX_CANTIDAD, Math.max(0, Math.floor(v))) : 0;
+
+    function cargarCarrito() {
+      try {
+        const guardado = JSON.parse(localStorage.getItem(CLAVE_CARRITO));
+        if (!guardado || typeof guardado !== 'object' || Array.isArray(guardado)) return;
+        Object.keys(guardado).forEach(id => {
+          const q = cantidadValida(guardado[id]);
+          if (botonesProducto.has(id) && q > 0) carrito.set(id, q);
+        });
+      } catch (e) { /* sin localStorage o datos dañados: empezamos vacíos */ }
+    }
+    function guardarCarrito() {
+      try {
+        if (carrito.size) localStorage.setItem(CLAVE_CARRITO, JSON.stringify(Object.fromEntries(carrito)));
+        else localStorage.removeItem(CLAVE_CARRITO);
+      } catch (e) { /* el carrito sigue funcionando en memoria */ }
+    }
+
+    const crear = (etiqueta, clase, texto) => {
+      const n = document.createElement(etiqueta);
+      if (clase) n.className = clase;
+      if (texto !== undefined) n.textContent = texto;
+      return n;
+    };
+    function botonAccion(accion, id, texto, etiqueta, desactivado) {
+      const b = crear('button', 'item-boton item-' + accion, texto);
+      b.type = 'button';
+      b.dataset.id = id;
+      b.dataset.accion = accion;
+      b.setAttribute('aria-label', etiqueta);
+      if (desactivado) b.setAttribute('aria-disabled', 'true');
+      return b;
+    }
+    function filaCarrito(id, q) {
+      const { nombre, centavos, emoji } = datos(id);
+      const li = crear('li', 'carrito-item');
+      li.dataset.id = id;
+      const emojiEl = crear('span', 'item-emoji', emoji);
+      emojiEl.setAttribute('aria-hidden', 'true');
+      const info = crear('div', 'item-info');
+      info.append(crear('strong', 'item-nombre', nombre), crear('span', 'item-precio', dinero(centavos) + ' c/u'));
+      const cantidad = crear('div', 'item-cantidad-caja');
+      cantidad.append(
+        botonAccion('menos', id, '−', 'Quitar una unidad de ' + nombre, q <= 1),
+        crear('span', 'item-cantidad', String(q)),
+        botonAccion('mas', id, '+', 'Añadir una unidad de ' + nombre, q >= MAX_CANTIDAD)
+      );
+      li.append(emojiEl, info, cantidad,
+        crear('span', 'item-subtotal', dinero(centavos * q)),
+        botonAccion('quitar', id, '🗑️', 'Quitar ' + nombre + ' del carrito'));
+      return li;
+    }
+
+    function pintarCarrito() {
+      let total = 0, unidades = 0;
+      carrito.forEach((q, id) => { total += datos(id).centavos * q; unidades += q; });
+      lista.replaceChildren(...[...carrito].map(([id, q]) => filaCarrito(id, q)));
+      vacio.hidden = carrito.size > 0;
+      botonPagar.disabled = carrito.size === 0;
+      el('carritoTotal').textContent = dinero(total);
+      const insignia = el('carritoCantidad');
+      insignia.textContent = unidades;
+      insignia.hidden = unidades === 0;
+      botonCarrito.setAttribute('aria-label', unidades
+        ? 'Abrir carrito, ' + unidades + (unidades === 1 ? ' producto' : ' productos')
+        : 'Abrir carrito, vacío');
+    }
+    const avisar = texto => { el('carritoAviso').textContent = texto; };
+    function cambiar() { guardarCarrito(); pintarCarrito(); }
+
+    function agregar(id) {
+      if (!botonesProducto.has(id)) return;
+      const q = carrito.get(id) || 0;
+      if (q >= MAX_CANTIDAD) { avisar('Máximo ' + MAX_CANTIDAD + ' unidades de ' + datos(id).nombre); return; }
+      carrito.set(id, q + 1);
+      cambiar();
+      avisar(datos(id).nombre + ' añadido al carrito');
+    }
+
+    // Diálogos (panel y confirmación): bloquean el scroll de fondo y encierran el foco
+    function dialogoAbierto() { return !confirmacion.hidden ? confirmacion : (!panel.hidden ? panel : null); }
+    function actualizarFondo() { document.body.classList.toggle('modal-abierto', !!dialogoAbierto()); }
+    function abrirPanel() {
+      panel.hidden = false; fondo.hidden = false;
+      botonCarrito.setAttribute('aria-expanded', 'true');
+      actualizarFondo();
+      panel.focus();
+    }
+    function cerrarPanel(devolverFoco = true) {
+      panel.hidden = true; fondo.hidden = true;
+      botonCarrito.setAttribute('aria-expanded', 'false');
+      actualizarFondo();
+      if (devolverFoco) botonCarrito.focus();
+    }
+    function abrirConfirmacion() {
+      let total = 0;
+      el('confirmacionLista').replaceChildren(...[...carrito].map(([id, q]) => {
+        const { nombre, centavos, emoji } = datos(id);
+        total += centavos * q;
+        const li = crear('li', 'carrito-item');
+        const emojiEl = crear('span', 'item-emoji', emoji);
+        emojiEl.setAttribute('aria-hidden', 'true');
+        const info = crear('div', 'item-info');
+        info.append(crear('strong', 'item-nombre', nombre), crear('span', 'item-precio', q + ' × ' + dinero(centavos)));
+        li.append(emojiEl, info, crear('span', 'item-subtotal', dinero(centavos * q)));
+        return li;
+      }));
+      el('confirmacionTotal').textContent = dinero(total);
+      confirmacion.hidden = false;
+      actualizarFondo();
+      el('confirmacionTitulo').focus();
+    }
+    function terminarPedidoSimulado() {
+      carrito.clear();
+      cambiar();
+      confirmacion.hidden = true;
+      actualizarFondo();
+      botonCarrito.focus();
+    }
+
+    botonCarrito.addEventListener('click', abrirPanel);
+    el('carritoCerrar').addEventListener('click', () => cerrarPanel());
+    fondo.addEventListener('click', () => cerrarPanel());
+    botonPagar.addEventListener('click', () => {
+      if (!carrito.size) return;
+      cerrarPanel(false);
+      abrirConfirmacion();
+    });
+    el('volverTienda').addEventListener('click', terminarPedidoSimulado);
+
+    lista.addEventListener('click', e => {
+      const b = e.target.closest('button[data-accion]');
+      if (!b || !carrito.has(b.dataset.id)) return;
+      const { id, accion } = b.dataset;
+      const q = carrito.get(id);
+      if (accion === 'mas') {
+        if (q >= MAX_CANTIDAD) { avisar('Máximo ' + MAX_CANTIDAD + ' unidades'); return; }
+        carrito.set(id, q + 1);
+      } else if (accion === 'menos') {
+        if (q <= 1) return; // para sacar el producto se usa "Quitar"
+        carrito.set(id, q - 1);
+      } else {
+        carrito.delete(id);
+        avisar(datos(id).nombre + ' quitado del carrito');
+      }
+      cambiar();
+      // las filas se vuelven a dibujar: devolvemos el foco para no perder el lugar con el teclado
+      const siguiente = accion === 'quitar'
+        ? (lista.querySelector('[data-accion="quitar"]') || el('carritoCerrar'))
+        : lista.querySelector('[data-id="' + id + '"][data-accion="' + accion + '"]');
+      siguiente.focus();
+    });
+
+    document.addEventListener('keydown', e => {
+      const dialogo = dialogoAbierto();
+      if (!dialogo) return;
+      if (e.key === 'Escape') {
+        if (dialogo === confirmacion) terminarPedidoSimulado(); else cerrarPanel();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const enfocables = [...dialogo.querySelectorAll('button:not([disabled]), [href], input, [tabindex]:not([tabindex="-1"])')];
+      if (!enfocables.length) { e.preventDefault(); return; }
+      const primero = enfocables[0], ultimo = enfocables[enfocables.length - 1];
+      const enLista = enfocables.includes(document.activeElement);
+      if (e.shiftKey && (!enLista || document.activeElement === primero)) { e.preventDefault(); ultimo.focus(); }
+      else if (!e.shiftKey && (!enLista || document.activeElement === ultimo)) { e.preventDefault(); primero.focus(); }
+    });
+
+    cargarCarrito();
+    pintarCarrito();
+
+    // Botones "Añadir": agregan al carrito y muestran un aviso breve
     document.querySelectorAll('[data-producto]').forEach(boton => {
       const original = boton.textContent;
       let temporizador;
       boton.addEventListener('click', () => {
+        agregar(boton.dataset.id);
         boton.textContent = '¡Añadido! 💖';
         clearTimeout(temporizador);
         temporizador = setTimeout(() => { boton.textContent = original; }, 1500);

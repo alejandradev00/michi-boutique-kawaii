@@ -39,6 +39,7 @@ Regla: texto siempre en `--texto` (oscuro) sobre fondos pastel, para que se lea 
   Al pasar el ratón sube un poco y la sombra crece.
 - **Secundario (`.btn-secundario`)**: igual pero con fondo lavanda.
 - **Pequeño (`.btn-chico`)**: para "Añadir" en productos, menos relleno.
+- **Táctiles:** todos los botones miden al menos 44px de alto (en el carrito, 44×44px).
 - Todos con foco visible (contorno) para quien navega con teclado.
 
 ## Responsivo
@@ -49,3 +50,10 @@ Regla: texto siempre en `--texto` (oscuro) sobre fondos pastel, para que se lea 
 ## Imágenes
 De momento se usan emojis e ilustraciones sobre fondos pastel. Cuando tengas fotos reales,
 sustituye los `<div class="producto-img">` por `<img src="..." alt="...">`.
+
+## Carrito
+- Botón 🛒 en la barra (menta, con globito rosa que cuenta las unidades).
+- Panel lateral con el mismo estilo de tarjeta: borde de 3px, sombra sólida lavanda, esquinas redondeadas.
+- Botones − (celeste), + (menta) y 🗑️ (rosa suave) de 44×44px; la cantidad va de 1 a 99.
+- Pantalla de confirmación simulada con aviso amarillo: no se cobra ni se piden datos de pago.
+- Se guarda en `localStorage` (clave `michi-carrito`): solo ids y cantidades.
